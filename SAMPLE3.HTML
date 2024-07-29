@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calorie Calculator</title>
+</head>
+<body>
+    <h1>Calorie Calculator</h1>
+    <p>Please enter the details of your food intake:</p>
+    <form id="calorieForm">
+        <label for="foodItem">Food Item:</label><br>
+        <input type="text" id="foodItem" name="foodItem"><br><br>
+
+        <label for="quantity">Quantity (grams):</label><br>
+        <input type="number" id="quantity" name="quantity"><br><br>
+
+        <label for="caloriesPerGram">Calories per Gram:</label><br>
+        <input type="number" id="caloriesPerGram" name="caloriesPerGram"><br><br>
+
+        <input type="button" value="Calculate" onclick="calculateCalories()">
+    </form>
+
+    <h2>Results</h2>
+    <p id="result"></p>
+
+    <script>
+        function calculateCalories() {
+            var foodItem = document.getElementById('foodItem').value;
+            var quantity = document.getElementById('quantity').value;
+            var caloriesPerGram = document.getElementById('caloriesPerGram').value;
+
+            if (foodItem && quantity && caloriesPerGram) {
+                var totalCalories = quantity * caloriesPerGram;
+                document.getElementById('result').innerText = 
+                    'The total calories for ' + quantity + ' grams of ' + foodItem + ' is: ' + totalCalories + ' kcal';
+            } else {
+                document.getElementById('result').innerText = 'Please fill in all fields.';
+            }
+        }
+    </script>
+</body>
+</html>
